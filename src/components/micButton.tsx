@@ -12,7 +12,7 @@ const MicButton = () => {
     const [isProcessing, setIsProcessing] = useState(false);
 
     const { settings: {
-        model, processor, recorder
+        model, processor, recorder, isLoaded
     }, dispatch } = useWhsiperSettings();
 
     const handleAudioRecording = async () => {
@@ -49,10 +49,10 @@ const MicButton = () => {
         {isProcessing ?
             <LoadingIcon />
             : micOn ?
-                <button onClick={toggleMic}>
+                <button disabled={!isLoaded ? true : false} onClick={toggleMic}>
                     <CiMicrophoneOff className="h-16 w-16 text-red-500" />
                 </button>
-                : <button onClick={toggleMic}>
+                : <button disabled={!isLoaded ? true : false} onClick={toggleMic}>
                     <CiMicrophoneOn className="h-16 w-16 text-green-500" />
                 </button>}
     </div>
