@@ -1,27 +1,3 @@
-import Whisper from "@/utils/whisper"
-
-interface AudioRecorder {
-    audioBlob: Blob | null,
-    mediaRecorder: MediaRecorder | null,
-    audioStream: MediaStream | null,
-    start: () => Promise<void>,
-    stopStream: () => void,
-    resetRecording: () => void,
-    stop: () => Promise<Blob | undefined>
-}
-
-interface AudioProcessor {
-    kSampleRate: number,
-    kIntervalAudio_ms: number,
-    kSteps: number,
-    kDelay: number,
-    sleep: (ms: number) => Promise<void>,
-    processAudio: (audio: Float32Array, startTime: number, index: number, position: number, whisper: Whisper) => Promise<string>,
-    transcribe: (audio: Blob, whisper: Whisper) => Promise<string>
-
-}
-
-export type {
-    AudioRecorder,
-    AudioProcessor
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:8b07f38a812417cade39eb07623d226306136d4aa5813d6d0927eced73b66cb2
+size 727
