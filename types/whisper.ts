@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b35a1dc4f94f19dca5df544fe7df25d0cba6503bbccbcd9f80aec4a154c0c894
-size 423
+import Whisper from "@/utils/whisper";
+
+import { AudioProcessor, AudioRecorder } from ".";
+
+interface WhisperSettings {
+    model?: Whisper;
+    text?: string;
+    recorder?: AudioRecorder;
+    processor?: AudioProcessor,
+    isLoaded?: boolean;
+}
+
+interface WhisperStoreAction {
+    type: "SET_TEXT" | 'GET_MODEL' | "SET_LOADED";
+    payload: WhisperSettings;
+}
+
+export type {
+    WhisperSettings,
+    WhisperStoreAction
+}

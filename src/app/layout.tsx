@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f0f48362db6992c0e37c355da85c8bc0ce24b0443ce3738de89c8129f4773554
-size 680
+import LayoutStore from '@/context/layoutStore'
+import type { Metadata } from 'next'
+import { Poppins } from 'next/font/google'
+import 'styles/globals.css'
+
+// const inter = Inter({ subsets: ['latin'] })
+
+const poppins = Poppins({
+  weight: ["400", "700"],
+  subsets: ['latin'],
+})
+
+export const metadata: Metadata = {
+  title: 'Whisper In Browser',
+  description: 'Run Whisper model in Browser with ONNX and Olive',
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en">
+      <body className={poppins.className}>
+        <LayoutStore>
+          {children}
+        </LayoutStore>
+      </body>
+    </html>
+  )
+}

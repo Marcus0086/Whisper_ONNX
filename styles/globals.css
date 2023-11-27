@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:45095f25564b9e308a631f42da02076ac96598907723b6838ae8401a11b241f0
-size 703
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .pluse_ring {
+    @apply animate-mic_pulse content-[""] w-24 h-24 absolute -top-1 -left-1 rounded-full bg-transparent border border-solid border-current;
+  }
+}

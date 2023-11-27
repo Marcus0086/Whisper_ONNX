@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0d35f8afe08a1ba3178bc6bf0fd0482ffa0e6afbeae0d2e50ab799591e0799ba
-size 375
+import LoadModel from "@/components/loadModel";
+import MicButton from "@/components/micButton";
+import Modal from "@/components/modal";
+
+const Page = () => {
+    return <>
+        <main className="flex flex-col items-center justify-center h-screen gap-y-6">
+            <LoadModel />
+            <MicButton />
+        </main>
+        <Modal />
+    </>
+}
+
+export default Page;
