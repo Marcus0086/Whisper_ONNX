@@ -14,6 +14,10 @@ const nextConfig = {
                     {
                         from: './node_modules/onnxruntime-web/dist/ort-wasm-simd.wasm',
                         to: 'static/chunks',
+                    },
+                    {
+                        from: "./model/*.onnx",
+                        to: "static/chunks",
                     }
                 ],
             })

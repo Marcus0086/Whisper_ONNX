@@ -37,7 +37,7 @@ const LoadModel = () => {
     useEffect(() => {
         const loadModel = async () => {
             if (model) {
-                await model.loadModel('https://github.com/Marcus0086/whisper_model/blob/a129f6345421b1bb7ee859b1aba60c9af22953d0/model/whisper_base.onnx');
+                await model.loadModel('/_next/static/chunks/model/whisper.onnx');
                 dispatch({
                     type: "SET_LOADED",
                     payload: {
