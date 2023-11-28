@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { PiMicrophoneSlash, PiMicrophone } from "react-icons/pi";
 
 import { useWhsiperSettings } from '@/context/whisperStore';
-import LoadingIcon from './loadingIcon';
 import { cn } from '@/utils/cn';
 
 const MicButton = () => {

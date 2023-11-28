@@ -1,9 +1,8 @@
 import LayoutStore from '@/context/layoutStore'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
-import 'styles/globals.css'
 
-// const inter = Inter({ subsets: ['latin'] })
+import 'styles/globals.css'
 
 const poppins = Poppins({
   weight: ["400", "700"],
@@ -11,8 +10,20 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Whisper In Browser',
-  description: 'Run Whisper model in Browser with ONNX and Olive',
+  title: 'Listenerbot by Tars',
+  description: 'Explore the world of audio transcription with "Listenerbot By Tars". Listenerbot offers unparalleled transcription capabilities directly in your web browser.',
+  openGraph: {
+    images: ['/preview.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/preview.png']
+  },
+  keywords: [
+    'listenerbot',
+    'listenerbot by tars',
+  ]
 }
 
 export default function RootLayout({

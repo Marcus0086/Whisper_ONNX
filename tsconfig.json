@@ -45,7 +45,11 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/components/transcriberPlugin.jsx",
+    "src/components/editorjs.jsx",
+    "src/context/editorStore.jsx",
+    "src/app/(Editor)/new/page.jsx"
   ],
   "exclude": [
     "node_modules"
