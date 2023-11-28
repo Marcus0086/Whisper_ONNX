@@ -22,37 +22,44 @@ class Transcriber {
     }
 
     render() {
-        const input = document.createElement('input');
-        input.className = 'ce-paragraph cdx-block bg-transparent';
+        const button = document.createElement('div');
+        button.className = 'ce-paragraph cdx-block cursor-pointer';
         if (Object.keys(this.data).length === 0) {
-            input.placeholder = 'Click to Record';
-            input.onclick = async () => {
+            button.innerText = 'Click to Record';
+            button.onclick = async () => {
                 if (!this.isRecording) {
                     this.audioRecorder?.start().then(() => {
-                        input.placeholder = 'Recording...';
+                        button.innerText = 'Recording...';
                         this.isRecording = true;
                     });
                 } else {
                     this.audioRecorder?.stop().then(blob => {
                         if (blob) {
-                            input.placeholder = "Processing...";
+                            button.innerText = "Processing...";
                             this.audioProcessor?.transcribe(blob, this.whiper).then(text => {
-                                input.defaultValue = text;
+                                button.innerText = text;
                                 this.isRecording = false;
+                                button.contentEditable = true;
+                                button.classList.remove('cursor-pointer')
+                                button.onclick = () => { };
                             })
                         }
                     })
                 }
             }
         } else {
-            input.defaultValue = this.data.text;
+            button.innerText = this.data.text;
+            button.contentEditable = true;
+            button.classList.remove('cursor-pointer')
+            button.onclick = () => { };
         }
-        return input;
+        return button;
     }
 
     save(blockContent) {
+        console.log(blockContent);
         return {
-            text: blockContent.value
+            text: blockContent.innerText
         }
     }
 }
