@@ -10,9 +10,11 @@ class Transcriber {
     isRecording = false;
     data = {};
 
-    constructor({ data }) {
+    constructor({ data, config, api }) {
         this.data = data;
-        this.whiper.loadModel('/_next/static/chunks/model/whisper.onnx')
+        if (Object.keys(data).length === 0) {
+            this.whiper.loadModel('/_next/static/chunks/model/whisper.onnx')
+        }
     }
     static get toolbox() {
         return {
